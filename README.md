@@ -13,7 +13,7 @@ This project is aimed at developing a RESTful API to predict machine downtime or
 - [Setup and Installation](#setup-and-installation)
 - [Usage](#usage)
 - [Testing with Postman](#testing-with-postman)
-- [License](#license)
+
 
 ---
 
@@ -38,7 +38,6 @@ This project uses a **supervised machine learning model** to predict machine dow
 ---
 
 ## Endpoints
-
 ### POST /upload
 
 #### Description:
@@ -50,21 +49,87 @@ Uploads a CSV file containing the manufacturing dataset.
 #### Example:
 ```bash
 POST http://127.0.0.1:5000/upload
-'''
+```
 
 ### POST /Train
 
 #### Description:
-Uploads a CSV file containing the manufacturing dataset.
+Trains a machine learning model (Logistic Regression or Decision Tree) using the uploaded dataset. Returns performance metrics
 
 #### Request:
-- **Form-data**: `file` (CSV file)
+- No data required in the body. The model will be trained using the uploaded dataset (sample_data.csv).
 
 #### Example:
 ```bash
 POST http://127.0.0.1:5000/train
-'''
+```
+### POST /predict
 
+#### Description:
+Makes predictions on input data (JSON format) using the trained model. Returns predictions with confidence scores.
+
+#### Request:
+- **JSON**: 
+`{
+  "feature_1": value,
+  "feature_2": value,
+}`
+
+#### Example:
+```bash
+POST http://127.0.0.1:5000/predict
+```
+## Setup and Installation
+### 1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/predictive-analysis-api.git
+cd predictive-analysis-api
+```
+
+### 2. Install the required dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Ensure the data folder exists, or it will be created upon the first file upload.
+---
+## Usage
+### 1.Start the API server:
+
+```bash
+python app.py
+```
+
+### 2.Access the API:
+
+The API will be available at ```http://127.0.0.1:5000/.```
+Use Postman or any HTTP client to test the endpoints
+
+---
+
+## Testing with Postman
+#### To test the API, follow these steps:
+
+## 1.Upload CSV File:
+
+- Set the method to POST.
+- Use the URL```http://127.0.0.1:5000/upload.```
+- Under the Body tab, choose form-data.
+- Add a key file and upload your CSV file.
+
+## 2.Train Model:
+
+- Set the method to POST.
+- Use the URL ```http://127.0.0.1:5000/train.```
+- The model will be trained on the uploaded dataset.
+## 3.Make Predictions:
+
+- Set the method to POST.
+- Use the URL ```http://127.0.0.1:5000/predict.```
+- Under the Body tab, choose raw and JSON.
+- Add input features as a JSON object (e.g., {"feature_1": 5.2, "feature_2": 3.1}).
 
 
 
