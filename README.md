@@ -51,4 +51,16 @@ Uploads a CSV file containing the manufacturing dataset.
 ```bash
 POST http://127.0.0.1:5000/upload
 
+### POST /upload
+
+#### Description:
+Uploads a CSV file containing the manufacturing dataset.
+
+#### Request:
+- **Form-data**: `file` (CSV file)
+
+#### Example:
+```bash
+POST http://127.0.0.1:5000/upload
+
 
