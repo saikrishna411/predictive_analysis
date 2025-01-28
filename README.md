@@ -38,7 +38,7 @@ This project uses a **supervised machine learning model** to predict machine dow
 ---
 
 ## Endpoints
-### POST /upload
+### POST/upload
 
 #### Description:
 Uploads a CSV file containing the manufacturing dataset.
@@ -51,7 +51,7 @@ Uploads a CSV file containing the manufacturing dataset.
 POST http://127.0.0.1:5000/upload
 ```
 
-### POST /Train
+### POST/train
 
 #### Description:
 Trains a machine learning model (Logistic Regression or Decision Tree) using the uploaded dataset. Returns performance metrics
@@ -63,7 +63,7 @@ Trains a machine learning model (Logistic Regression or Decision Tree) using the
 ```bash
 POST http://127.0.0.1:5000/train
 ```
-### POST /predict
+### POST/predict
 
 #### Description:
 Makes predictions on input data (JSON format) using the trained model. Returns predictions with confidence scores.
